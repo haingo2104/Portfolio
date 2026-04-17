@@ -1,158 +1,102 @@
-/* ===================================================
-   Portfolio — Haingo Nirina Fara Mampionona
-   Interactive features: spotlight, scroll reveal,
-   active nav, scroll progress, theme toggle
-   =================================================== */
-
+/* Portfolio interactions — Haingo */
 (function () {
   'use strict';
 
-  // ---- Spotlight (cursor follow — dark mode only) ----
-  const spotlight = document.getElementById('spotlight');
-
-  document.addEventListener('mousemove', (e) => {
-    if (document.documentElement.classList.contains('light')) return;
-    spotlight.style.background =
-      `radial-gradient(600px at ${e.clientX}px ${e.clientY}px, rgba(29, 78, 216, 0.15), transparent 80%)`;
-  });
-
-  // ---- Scroll Progress ----
-  const scrollProgress = document.getElementById('scrollProgress');
-
-  function updateScrollProgress() {
+  // === Scroll Progress ===
+  const progressBar = document.getElementById('progressBar');
+  function updateProgress() {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const percent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-    scrollProgress.style.width = percent + '%';
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = pct + '%';
   }
 
-  // ---- Scroll Reveal (Intersection Observer) ----
-  const revealElements = document.querySelectorAll('.scroll-reveal');
+  // === Navbar scrolled state ===
+  const navbar = document.querySelector('.navbar');
+  function updateNavbar() {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  }
 
-  const revealObserver = new IntersectionObserver(
+  // === Active nav link ===
+  const navLinks = document.querySelectorAll('.navbar__nav a');
+  const sections = document.querySelectorAll('section[id]');
+
+  function updateActiveNav() {
+    const scrollPos = window.scrollY + window.innerHeight / 3;
+    let current = '';
+    sections.forEach((s) => {
+      if (s.offsetTop <= scrollPos) current = s.id;
+    });
+    navLinks.forEach((l) => {
+      l.classList.toggle('active', l.dataset.section === current);
+    });
+  }
+
+  // === Scroll reveal ===
+  const revealItems = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver(
     (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
         }
       });
     },
-    { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
   );
+  revealItems.forEach((el) => io.observe(el));
 
-  revealElements.forEach((el) => revealObserver.observe(el));
-
-  // ---- Active Nav Link ----
-  const navLinks = document.querySelectorAll('.nav__link');
-  const sections = document.querySelectorAll('.section[id]');
-
-  function updateActiveNav() {
-    const scrollPos = window.scrollY + 200;
-
-    let currentSection = '';
-    sections.forEach((section) => {
-      if (section.offsetTop <= scrollPos) {
-        currentSection = section.getAttribute('id');
-      }
-    });
-
-    navLinks.forEach((link) => {
-      link.classList.toggle('active', link.dataset.section === currentSection);
-    });
-  }
-
-  // ---- Scroll event (throttled) ----
+  // === Throttled scroll ===
   let ticking = false;
-
   window.addEventListener('scroll', () => {
     if (!ticking) {
-      window.requestAnimationFrame(() => {
-        updateScrollProgress();
+      requestAnimationFrame(() => {
+        updateProgress();
+        updateNavbar();
         updateActiveNav();
         ticking = false;
       });
       ticking = true;
     }
   });
-
-  // Initial call
-  updateScrollProgress();
+  updateProgress();
+  updateNavbar();
   updateActiveNav();
 
-  // ---- Theme Toggle ----
-  const themeToggle = document.getElementById('themeToggle');
-  const html = document.documentElement;
-
-  // Check saved preference
-  const savedTheme = localStorage.getItem('portfolio-theme');
-  if (savedTheme === 'light') {
-    html.classList.remove('dark');
-    html.classList.add('light');
-  }
-
-  themeToggle.addEventListener('click', () => {
-    const isLight = html.classList.contains('light');
-    html.classList.toggle('light', !isLight);
-    html.classList.toggle('dark', isLight);
-    localStorage.setItem('portfolio-theme', isLight ? 'dark' : 'light');
-
-    // Clear spotlight in light mode
-    if (!isLight) {
-      spotlight.style.background = 'none';
-    }
-  });
-
-  // ---- Smooth scroll for nav links ----
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
+  // === Smooth scroll ===
+  document.querySelectorAll('a[href^="#"]').forEach((a) => {
+    a.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (href === '#' || !href) return;
+      const target = document.querySelector(href);
       if (target) {
+        e.preventDefault();
         target.scrollIntoView({ behavior: 'smooth' });
+        // Close mobile menu if open
+        const nav = document.querySelector('.navbar__nav');
+        if (nav && nav.classList.contains('open')) nav.classList.remove('open');
       }
     });
   });
 
-  // ---- Mobile bottom nav (inject dynamically) ----
-  if (window.innerWidth < 1024) {
-    const mobileNav = document.createElement('nav');
-    mobileNav.className = 'mobile-nav';
-    mobileNav.setAttribute('aria-label', 'Mobile navigation');
-    mobileNav.innerHTML = `
-      <a href="#about" data-section="about" class="active">Profil</a>
-      <a href="#experience" data-section="experience">Exp.</a>
-      <a href="#skills" data-section="skills">Skills</a>
-      <a href="#projects" data-section="projects">Projets</a>
-      <a href="#contact" data-section="contact">Contact</a>
-    `;
-    document.body.appendChild(mobileNav);
-
-    // Update active state for mobile nav too
-    const mobileLinks = mobileNav.querySelectorAll('a');
-
-    function updateMobileNav() {
-      const scrollPos = window.scrollY + 200;
-      let current = '';
-      sections.forEach((s) => {
-        if (s.offsetTop <= scrollPos) current = s.id;
-      });
-      mobileLinks.forEach((l) => {
-        l.classList.toggle('active', l.dataset.section === current);
-      });
-    }
-
-    window.addEventListener('scroll', () => {
-      requestAnimationFrame(updateMobileNav);
-    });
-
-    // Smooth scroll for mobile nav
-    mobileLinks.forEach((a) => {
-      a.addEventListener('click', (e) => {
-        e.preventDefault();
-        const t = document.querySelector(a.getAttribute('href'));
-        if (t) t.scrollIntoView({ behavior: 'smooth' });
-      });
+  // === Burger menu ===
+  const burger = document.getElementById('burger');
+  const nav = document.querySelector('.navbar__nav');
+  if (burger && nav) {
+    burger.addEventListener('click', () => {
+      nav.classList.toggle('open');
     });
   }
+
+  // === Subtle parallax on blobs ===
+  const blobs = document.querySelectorAll('.blob');
+  window.addEventListener('mousemove', (e) => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 2;
+    const y = (e.clientY / window.innerHeight - 0.5) * 2;
+    blobs.forEach((b, i) => {
+      const factor = (i + 1) * 12;
+      b.style.transform = `translate(${x * factor}px, ${y * factor}px)`;
+    });
+  });
 })();
