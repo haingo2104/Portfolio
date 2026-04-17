@@ -823,7 +823,7 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
 .featured-project__tag--live {
   background: rgba(74, 222, 128, 0.12);
   border-color: rgba(74, 222, 128, 0.25);
-  color: #4ade80;
+  color: #86efac;
 }
 
 .pulse-dot {
@@ -980,11 +980,11 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
 }
 
 @media (min-width: 640px) {
-  .projects-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (min-width: 1024px) {
-  .projects-grid { grid-template-columns: repeat(4, 1fr); }
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 800px;
+    margin: 0 auto;
+  }
 }
 
 .project-card {
@@ -1141,7 +1141,7 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
   padding: 0.2rem 0.65rem;
   font-size: 0.65rem;
   background: rgba(74, 222, 128, 0.15);
-  color: #4ade80;
+  color: #86efac;
   border-radius: 9999px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
