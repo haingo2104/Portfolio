@@ -1,0 +1,112 @@
+<section class="section">
+  <div class="container">
+    <div class="section__header" appReveal>
+      <span class="section__tag">03 / Projets</span>
+      <h2 class="section__title">Réalisations</h2>
+      <p class="section__subtitle">Projet principal & travaux personnels.</p>
+    </div>
+
+    <!-- QOLEE TMS — Main featured project -->
+    <article class="featured-project" appReveal>
+      <div class="featured-project__glow"></div>
+      <div class="featured-project__header">
+        <div class="featured-project__meta">
+          <span class="featured-project__tag">Projet principal</span>
+          <span class="featured-project__tag featured-project__tag--live">
+            <span class="pulse-dot"></span>
+            En production
+          </span>
+        </div>
+        <h3 class="featured-project__title">Qolee TMS</h3>
+        <p class="featured-project__client">Transport Management System — développé pour <span class="hl">Air France</span></p>
+      </div>
+
+      <p class="featured-project__desc">
+        Plateforme SaaS multi-tenant couvrant l'ensemble du cycle logistique : de la demande de transport à l'exécution terrain, en passant par la planification et le suivi temps réel. Architecture <span class="hl">DDD/CQRS</span>, backend découpé en Bounded Contexts isolés, API Gateway Kong, synchronisation offline-first pour les opérateurs mobiles.
+      </p>
+
+      <div class="tag-row">
+        <span class="tag tag--primary">DDD</span>
+        <span class="tag tag--primary">CQRS</span>
+        <span class="tag">NestJS</span>
+        <span class="tag">Angular</span>
+        <span class="tag">Ionic</span>
+        <span class="tag">MongoDB</span>
+        <span class="tag">Kafka</span>
+        <span class="tag">Kong</span>
+      </div>
+
+      <div class="sub-projects">
+        <div class="sub-project">
+          <div class="sub-project__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+          </div>
+          <div class="sub-project__body">
+            <div class="sub-project__head">
+              <h4>Application Web</h4>
+              <span class="sub-project__kind">Web</span>
+            </div>
+            <p>Back-office pour exploitants et administrateurs. Gestion des demandes, planification, suivi d'exécution et paramétrage.</p>
+            <div class="tag-row">
+              <span class="tag tag--sm">Angular</span>
+              <span class="tag tag--sm">NgRx Signals</span>
+              <span class="tag tag--sm">SCSS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sub-project">
+          <div class="sub-project__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+          </div>
+          <div class="sub-project__body">
+            <div class="sub-project__head">
+              <h4>Application Mobile</h4>
+              <span class="sub-project__kind">Mobile</span>
+            </div>
+            <p>Application pour les opérateurs terrain. Planning, exécution d'ordres, scan colis, gestion d'anomalies, mode offline.</p>
+            <div class="tag-row">
+              <span class="tag tag--sm">Ionic</span>
+              <span class="tag tag--sm">Capacitor</span>
+              <span class="tag tag--sm">IndexedDB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Other projects grid -->
+    <div class="projects-grid">
+      <a href="https://github.com/haingo2104/station_project" target="_blank" rel="noopener" class="project-card" appReveal>
+        <div class="project-card__top">
+          <div class="project-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z"/><path d="M9 9h6v6H9z"/></svg>
+          </div>
+          <svg class="project-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </div>
+        <h4 class="project-card__title">Station-service</h4>
+        <p class="project-card__desc">Application de gestion des ventes et stocks pour une station-service. Frontend React avec API REST backend.</p>
+        <div class="tag-row">
+          <span class="tag tag--sm">React</span>
+          <span class="tag tag--sm">JavaScript</span>
+          <span class="tag tag--sm">API REST</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/haingo2104/SoftGEPEC" target="_blank" rel="noopener" class="project-card" [appReveal]="100">
+        <div class="project-card__top">
+          <div class="project-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <svg class="project-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </div>
+        <h4 class="project-card__title">SoftGEPEC</h4>
+        <p class="project-card__desc">Application de gestion prévisionnelle des emplois et compétences. Évaluations, plans de formation, suivi carrière.</p>
+        <div class="tag-row">
+          <span class="tag tag--sm">TypeScript</span>
+          <span class="tag tag--sm">Next.js</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,14 @@
+.footer {
+  margin-top: 3rem;
+  padding: 0 1.5rem 3rem;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+.footer__heart {
+  color: var(--accent-3);
+  animation: pulse 1.5s ease-in-out infinite;
+  display: inline-block;
+}

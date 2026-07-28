@@ -1,0 +1,23 @@
+<header class="navbar" [class.scrolled]="scrolled()">
+  <a routerLink="/" class="navbar__logo" (click)="closeMenu()">
+    <span class="navbar__logo-dot"></span>
+    <span class="navbar__logo-text">haingo<span class="accent">.dev</span></span>
+  </a>
+
+  <nav class="navbar__nav" [class.open]="menuOpen()">
+    <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()"><span class="num">01.</span>Profil</a>
+    <a routerLink="/skills" routerLinkActive="active" (click)="closeMenu()"><span class="num">02.</span>Compétences</a>
+    <a routerLink="/projects" routerLinkActive="active" (click)="closeMenu()"><span class="num">03.</span>Projets</a>
+    <a routerLink="/experience" routerLinkActive="active" (click)="closeMenu()"><span class="num">04.</span>Parcours</a>
+    <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()"><span class="num">05.</span>Contact</a>
+  </nav>
+
+  <a href="mailto:fara.haingonirina@gmail.com" class="navbar__cta">
+    <span>Me contacter</span>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+  </a>
+
+  <button class="navbar__burger" aria-label="Menu" (click)="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</header>

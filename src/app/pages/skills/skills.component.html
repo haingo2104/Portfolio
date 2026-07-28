@@ -1,0 +1,93 @@
+<section class="section">
+  <div class="container">
+    <div class="section__header" appReveal>
+      <span class="section__tag">02 / Compétences</span>
+      <h2 class="section__title">Stack technique</h2>
+      <p class="section__subtitle">Les technologies et patterns avec lesquels je construis des applications robustes.</p>
+    </div>
+
+    <div class="skills-grid">
+      <!-- Frontend -->
+      <div class="skill-card" appReveal>
+        <div class="skill-card__inner">
+          <div class="skill-card__header">
+            <div class="skill-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3>Frontend</h3>
+          </div>
+          <div class="skill-card__items">
+            <span>Angular</span><span>Ionic Angular</span><span>React</span><span>Next.js</span><span>TypeScript</span><span>NgRx Signals</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Backend -->
+      <div class="skill-card" [appReveal]="80">
+        <div class="skill-card__inner">
+          <div class="skill-card__header">
+            <div class="skill-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
+            </div>
+            <h3>Backend</h3>
+          </div>
+          <div class="skill-card__items">
+            <span>Node.js</span><span>NestJS</span><span>Express</span><span>Prisma</span><span>Kafka</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Database -->
+      <div class="skill-card" [appReveal]="160">
+        <div class="skill-card__inner">
+          <div class="skill-card__header">
+            <div class="skill-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
+            </div>
+            <h3>Base de données</h3>
+          </div>
+          <div class="skill-card__items">
+            <span>MongoDB</span><span>MySQL</span><span>IndexedDB</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Architecture - Wide -->
+      <div class="skill-card skill-card--wide" [appReveal]="240">
+        <div class="skill-card__inner">
+          <div class="skill-card__header">
+            <div class="skill-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg>
+            </div>
+            <h3>Architecture & Qualité</h3>
+          </div>
+          <p class="skill-card__lead">Mes patterns de prédilection pour des systèmes maintenables.</p>
+          <div class="skill-card__items">
+            <span class="highlight">Domain-Driven Design</span>
+            <span class="highlight">CQRS</span>
+            <span>Clean Architecture</span>
+            <span>Bounded Contexts</span>
+            <span>Event-Driven</span>
+            <span>Tests E2E</span>
+            <span>Nx Monorepo</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="skill-card" [appReveal]="320">
+        <div class="skill-card__inner">
+          <div class="skill-card__header">
+            <div class="skill-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <h3>Outils</h3>
+          </div>
+          <div class="skill-card__items">
+            <span>Git</span><span>Claude Code</span><span>VS Code</span><span>Docker</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
