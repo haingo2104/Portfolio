@@ -32,6 +32,21 @@
   pointer-events: none;
 }
 
+.about__photo {
+  display: block;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  object-position: 50% 20%;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: linear-gradient(var(--bg), var(--bg)) padding-box,
+    var(--gradient-main) border-box;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
 .about__text {
   color: var(--text-muted);
   margin-bottom: 1.25rem;
