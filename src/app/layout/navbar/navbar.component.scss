@@ -58,21 +58,35 @@
   transition: color 0.2s ease;
 }
 
-.navbar__nav a .num {
-  color: var(--accent);
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  margin-right: 0.35rem;
-  opacity: 0.7;
+.navbar__nav a::after {
+  content: '';
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 0.2rem;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--gradient-main);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s ease;
 }
 
-.navbar__nav a:hover,
-.navbar__nav a.active {
+.navbar__nav a:hover {
   color: var(--text);
 }
 
+.navbar__nav a:hover::after {
+  transform: scaleX(0.5);
+}
+
 .navbar__nav a.active {
+  color: var(--text);
   background: var(--surface);
+}
+
+.navbar__nav a.active::after {
+  transform: scaleX(1);
 }
 
 .navbar__cta {
