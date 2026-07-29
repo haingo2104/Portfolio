@@ -33,7 +33,7 @@
   pointer-events: none;
 }
 
-.contact-box > * {
+.contact-box > *:not(.contact-box__glow) {
   position: relative;
   z-index: 1;
 }
