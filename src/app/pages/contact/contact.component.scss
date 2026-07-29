@@ -1,5 +1,12 @@
 .section--contact {
+  padding-top: 3rem;
   padding-bottom: 3rem;
+}
+
+@media (max-width: 900px) {
+  .section--contact {
+    padding-top: 2rem;
+  }
 }
 
 .contact-box {
