@@ -95,6 +95,10 @@
   gap: 0.5rem;
 }
 
+.navbar__actions--mobile {
+  display: none;
+}
+
 .navbar__cv {
   display: inline-flex;
   align-items: center;
@@ -156,7 +160,7 @@
   .navbar__nav {
     display: none;
   }
-  .navbar__actions {
+  .navbar__actions--desktop {
     display: none;
   }
   .navbar__burger {
@@ -178,16 +182,16 @@
     gap: 0.25rem;
   }
 
-  .navbar__nav-cv {
+  .navbar__actions--mobile {
+    display: flex;
     margin-top: 0.5rem;
-    padding: 0.65rem 1rem;
-    text-align: center;
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: var(--text);
-    background: var(--surface);
-    border: 1px solid var(--border-strong);
-    border-radius: 9999px;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .navbar__actions--mobile .navbar__cta {
+    flex: 1;
+    justify-content: center;
   }
 }
 

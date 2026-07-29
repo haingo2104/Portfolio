@@ -10,16 +10,26 @@
     <a routerLink="/projects" routerLinkActive="active" (click)="closeMenu()"><span>Projets</span></a>
     <a routerLink="/experience" routerLinkActive="active" (click)="closeMenu()"><span>Parcours</span></a>
     <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()"><span>Contact</span></a>
-    <a
-      href="cv-haingo-nirina-fara-mampionona.pdf"
-      download="CV-Haingo-Nirina-Fara-Mampionona.pdf"
-      class="navbar__nav-cv"
-    >
-      <span>Télécharger mon CV</span>
-    </a>
+
+    <div class="navbar__actions navbar__actions--mobile">
+      <a
+        href="cv-haingo-nirina-fara-mampionona.pdf"
+        download="CV-Haingo-Nirina-Fara-Mampionona.pdf"
+        class="navbar__cv"
+        aria-label="Télécharger mon CV"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+        <span>CV</span>
+      </a>
+
+      <a href="mailto:fara.haingonirina@gmail.com" class="navbar__cta" (click)="closeMenu()">
+        <span>Me contacter</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
   </nav>
 
-  <div class="navbar__actions">
+  <div class="navbar__actions navbar__actions--desktop">
     <a
       href="cv-haingo-nirina-fara-mampionona.pdf"
       download="CV-Haingo-Nirina-Fara-Mampionona.pdf"
