@@ -176,6 +176,12 @@
   animation: slideUp 0.8s ease-out 1.5s forwards;
 }
 
+@media (max-height: 1020px) {
+  .hero__scroll {
+    display: none;
+  }
+}
+
 .hero__scroll-line {
   width: 1px;
   height: 40px;
